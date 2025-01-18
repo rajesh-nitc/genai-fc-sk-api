@@ -7,7 +7,7 @@ This API uses the Microsoft Semantic Kernel framework. It supports function call
 - **gpt-4**
 - **gpt-4o**
 - **gpt-4o-mini**
-- **gemini-1.5-pro**
+- **gemini-1.5-flash**
 
 ## Features
 

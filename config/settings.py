@@ -40,7 +40,7 @@ class Settings(BaseSettings):
         "gpt-4o",
         "gpt-4o-mini",
         "gemini-1.5-flash",
-    ] = Field("gpt-4o-mini", description="The foundation model to use.")
+    ] = Field("gemini-1.5-flash", description="The foundation model to use.")
     LLM_SYSTEM_INSTRUCTION: str = Field(
         dedent_and_strip(
             """
