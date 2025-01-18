@@ -1,4 +1,4 @@
-name: CI
+name: genai-function-calling-api-v2-ci
 
 on:
   push:
