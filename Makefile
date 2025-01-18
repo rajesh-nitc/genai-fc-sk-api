@@ -55,13 +55,13 @@ docker: ## Run in docker (Add Openai API key, OpenWeather API key and update oth
         -e GOOGLE_APPLICATION_CREDENTIALS=/tmp/keys/credentials.json \
         -e APP_NAME=$(APP_NAME) \
 		-e AZURE_OPENAI_API_KEY="" \
-		-e AZURE_OPENAI_ENDPOINT="https://oai-function-calling-api.openai.azure.com/" \
+		-e AZURE_OPENAI_ENDPOINT="https://oai-function-calling-api-06.openai.azure.com/" \
         -e ENV="local" \
         -e GOOGLE_CLOUD_PROJECT=$(GOOGLE_CLOUD_PROJECT) \
 		-e GOOGLE_CLOUD_REGION="us-central1" \
 		-e HTTP_CLIENT_BASE_URL="https://api.openweathermap.org" \
         -e LLM_CHAT_BUCKET="bkt-bu1-d-function-calling-api-chat" \
-        -e LLM_MODEL="gemini-1.5-flash" \
+        -e LLM_MODEL="gpt-4o-mini" \
         -e LLM_SYSTEM_INSTRUCTION="You are a helpful assistant." \
         -e LOG_LEVEL="INFO" \
 		-e OPENWEATHER_API_KEY="" \
