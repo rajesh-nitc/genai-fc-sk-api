@@ -1,0 +1,5 @@
+fastapi==0.115.6
+google-cloud-aiplatform==1.77.0
+gunicorn==23.0.0
+semantic-kernel==1.18.2
+uvicorn==0.32.1

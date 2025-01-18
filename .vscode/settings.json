@@ -1,0 +1,30 @@
+{
+	"python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+	"python.autoComplete.extraPaths": [
+		"${workspaceFolder}/.venv/lib/python3.12/site-packages",
+		"${workspaceFolder}"
+	],
+	"python.analysis.typeCheckingMode": "basic",
+	"editor.formatOnSave": true,
+	"terminal.integrated.copyOnSelection": true,
+	"terminal.integrated.rightClickBehavior": "paste",
+	"editor.codeActionsOnSave": {
+		"source.organizeImports": "always"
+	},
+	"python.testing.pytestEnabled": true,
+	"python.testing.pytestArgs": [
+		"tests",
+		"-m",
+		"integration"
+	],
+	"python.testing.autoTestDiscoverOnSaveEnabled": true,
+	"terminal.integrated.env.linux": {
+		"PYTHONPATH": "${workspaceFolder}"
+	},
+	"files.exclude": {
+		".venv": true,
+		"**/__pycache__": true,
+		".mypy_cache": true,
+		".pytest_cache": true
+	},
+}

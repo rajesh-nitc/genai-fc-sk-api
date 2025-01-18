@@ -1,0 +1,18 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Debug function-calling-api",
+			"type": "debugpy",
+			"request": "launch",
+			"module": "gunicorn",
+			"args": [
+				"main:app",
+				"--config",
+				"config/gunicorn.conf.py"
+			],
+			"console": "integratedTerminal",
+			"cwd": "${workspaceFolder}"
+		}
+	]
+}

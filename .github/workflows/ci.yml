@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - "feature/**"
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      - name: Cache Python packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements-dev.txt
+
+      - name: Run pre-commit hooks
+        run: |
+          source .venv/bin/activate
+          pre-commit run --all-files
+
+      - name: Set up GCP auth
+        run: |
+          echo "${{ secrets.GCP_CREDENTIALS_BASE64 }}" | base64 --decode > $HOME/credentials.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$HOME/credentials.json" >> $GITHUB_ENV
+
+      # Run test cases with --test-cases="weather"
+      - name: Run tests with pytest
+        env:
+          PYTHONPATH: "$GITHUB_WORKSPACE"
+          OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
+          AZURE_OPENAI_API_KEY: ${{ secrets.AZURE_OPENAI_API_KEY }}
+        run: |
+          source .venv/bin/activate
+          pytest -m integration --test-cases="weather"
+
+      - name: Sanitize branch name
+        run: |
+          SAFE_BRANCH_NAME=$(echo "${GITHUB_REF}" | sed 's|refs/heads/||' | tr '/' '-' | tr -c '[:alnum:]-' '-' | sed 's/^-//;s/-$//;s/--*/-/g')
+          echo "SAFE_BRANCH_NAME=${SAFE_BRANCH_NAME}" >> $GITHUB_ENV
+
+      - name: Build Docker image
+        run: docker build -t genai-function-calling-api-v2:${SAFE_BRANCH_NAME}-${GITHUB_SHA:0:7} .
