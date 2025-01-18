@@ -13,7 +13,7 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "ms-semantic-kernel.semantic-kernel", // Semantic Kernel
+                "ms-semantic-kernel.semantic-kernel", // Microsoft Semantic Kernel Framework
                 "GitHub.copilot", // AI-powered code suggestions for enhanced productivity
                 "VisualStudioExptTeam.vscodeintellicode", // AI-assisted code completions and suggestions
                 "ms-python.python", // Essential extension for Python development
