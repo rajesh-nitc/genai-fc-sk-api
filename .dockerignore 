@@ -9,8 +9,6 @@
 .venv/
 .vscode/
 **pycache**/
-data/
-helpers/
 Makefile
 pytest.ini
 README.md
