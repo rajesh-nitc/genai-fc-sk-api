@@ -11,7 +11,7 @@ This API uses the Microsoft Semantic Kernel framework. It supports function call
 
 ## Features
 
-1. **Generation with APIs** (e.g., `get_location_coordinates_func`, `get_weather_by_coordinates_func`)
+1. **Generation with APIs** (e.g., `get_location_coordinates`, `get_weather_by_coordinates`)
 
 ## Getting Started 🚀
 
