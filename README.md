@@ -1,6 +1,6 @@
 # genai-function-calling-api-v2
 
-This API uses the Microsoft Semantic Kernel framework. It supports function calling with both Azure OpenAI models and Gemini models on Vertex AI. The model is provided with the day's chat history to maintain multi-turn context.
+This API uses the Microsoft Semantic Kernel framework and supports function calling with both Azure OpenAI models and Gemini models on Vertex AI. The model is provided with the day's chat history to maintain multi-turn context.
 
 ## Models Tested
 
