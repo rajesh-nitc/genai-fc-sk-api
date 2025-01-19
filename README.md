@@ -70,8 +70,10 @@ make prompt PROMPT='what is 1+1 and how is the weather in bengaluru and mumbai?'
 
 ### Issues
 
-Gemini models throw the following error when more than one tool call is present:
+Gemini models throw the following error when more than one tool call is present in their response:
 
 ```
 google.api_core.exceptions.InvalidArgument: 400 Please ensure that the number of function response parts should be equal to number of function call parts of the function call turn.
 ```
+
+This error occurs less frequently with **gemini-1.5-flash**.
