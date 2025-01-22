@@ -3,7 +3,7 @@ from semantic_kernel.contents.chat_history import ChatHistory
 from semantic_kernel.contents.chat_message_content import ChatMessageContent
 from semantic_kernel.contents.utils.author_role import AuthorRole
 
-from agents.agent_01 import invoke_agent_01
+from agents.invoke import invoke_agent
 from utils.gcs import append_chat_message_to_gcs, get_chat_messages
 
 
@@ -13,7 +13,7 @@ async def generate_model_response(
     """ """
     history = get_chat_messages(user_id)
     chat = ChatHistory(messages=history)
-    response = await invoke_agent_01(agent, prompt, chat)
+    response = await invoke_agent(agent, prompt, chat)
     append_chat_message_to_gcs(
         user_id, ChatMessageContent(role=AuthorRole.USER, content=prompt)
     )
