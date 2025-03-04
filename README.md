@@ -1,4 +1,4 @@
-# genai-sk-fc-api
+# genai-fc-sk-api
 
 This API uses the Microsoft Semantic Kernel framework and supports function calling with both Azure OpenAI models and Gemini models on Vertex AI. The model is provided with the day's chat history to maintain multi-turn context.
 
@@ -12,6 +12,7 @@ This API uses the Microsoft Semantic Kernel framework and supports function call
 ## Features
 
 1. **Generation with APIs** (e.g., `get_location_coordinates`, `get_weather_by_coordinates`)
+2. **Generation with Vector Search** - TODO
 
 ## Getting Started 🚀
 
